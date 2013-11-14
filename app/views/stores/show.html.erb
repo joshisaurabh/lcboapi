@@ -1,0 +1,37 @@
+<h1>LCBO Store Details</h1>
+
+<% @stores['result'].each do |s| %>
+  <p>
+  <% if s['id'].to_s == params[:id] %>
+  	<p> Store Number :<%= s['id'] %>
+    <p>Name :<%= s['name'] %> </p>
+    <p>Address1: <%= s['address_line_1'] %></p>
+	<p>Address2: <%= s['address_line_2'] %></p>
+	<p>City: <%= s['city'] %></p>
+	<p>Postal Code: <%= s['postal_code'] %></p>
+	<p>Telephone: <%= s['telephone'] %></p>
+  	
+  	<h2> Store Hours </h2>
+
+	<p><strong>Sunday</strong> => Open at <%= s['sunday_open'].to_f/60 %> Hours   Close at <%= s['sunday_close'].to_f/60 %> Hours</p>
+
+	<p><strong>Monday</strong> => Open at <%= s['monday_open'].to_f/60 %> Hours   Close at <%= s['monday_close'].to_f/60 %> Hours</p>
+
+
+	<p><strong>Tuesday</strong> => Open at <%= s['tuesday_open'].to_f/60 %> Hours   Close at <%= s['tuesday_close'].to_f/60 %> Hours</p>
+
+	<p><strong>Wednesday</strong> => Open at <%= s['wednesday_open'].to_f/60 %> Hours   Close at <%= s['wednesday_close'].to_f/60 %> Hours</p>
+
+
+    <p><strong>Thursday</strong> => Open at <%= s['thursday_open'].to_f/60 %> Hours   Close at <%= s['thursday_close'].to_f/60 %> Hours</p>
+
+    <p><strong>Friday</strong> => Open at <%= s['friday_open'].to_f/60 %> Hours   Close at <%= s['friday_close'].to_f/60 %> Hours</p>
+
+    <p><strong>Saturday</strong> => Open at <%= s['saturday_open'].to_f/60 %> Hours   Close at <%= s['saturday_close'].to_f/60 %> Hours</p>
+
+  <%  end %>
+
+  	</p>
+<% end %>
+<%= link_to "All Stores", "/stores" %>
+<%= link_to "See All Products", "/products" %>

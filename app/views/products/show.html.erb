@@ -1,0 +1,21 @@
+
+
+<h2> Product Detail </h2>
+
+<% @products['result'].each do |p| %>
+  <p>
+  <% if p['id'].to_s == params[:id] %>
+    <p>Name :<%= p['name'] %> </p>
+    <p>Tag: <%= p['tags'] %></p>
+   <p>Price $: <%=format_price p['price_in_cents'] %></p>
+
+   <p> Inventory in all stores : <%=p['inventory_count'] %></p>
+
+
+  <%  end %>
+
+  	</p>
+<% end %>
+
+<%= link_to "All Stores", "/stores" %>
+<%= link_to "See All Products", "/products" %>
