@@ -2,20 +2,19 @@
 
 <h2> Product Detail </h2>
 
-<% @products['result'].each do |p| %>
-  <p>
-  <% if p['id'].to_s == params[:id] %>
-    <p>Name :<%= p['name'] %> </p>
-    <p>Tag: <%= p['tags'] %></p>
-   <p>Price $: <%=format_price p['price_in_cents'] %></p>
 
-   <p> Inventory in all stores : <%=p['inventory_count'] %></p>
+<p> <%= params %> </p>
+
+<p> <strong>Product Id: </strong><%= @products['result']['id'] %> </p>
+<p> <strong> Product Name: </strong> <%= @products['result']['name'] %> </p>
+<p><strong>  Price $:</strong> <%= format_price(@products['result']['price_in_cents']) %> </p>
+<p> <strong>Inventory count across Stores:</strong> <%= @products['result']['inventory_count'] %> </p>
+<p> <strong>Inventory as of:</strong> <%= @products['result']['updated_at'] %> </p>
+
+<p>
+
+</p>
 
 
-  <%  end %>
-
-  	</p>
-<% end %>
-
-<%= link_to "All Stores", "/stores" %>
-<%= link_to "See All Products", "/products" %>
+<%= link_to "See Stores", "/stores" %>
+<%= link_to "See Products", "/products" %>

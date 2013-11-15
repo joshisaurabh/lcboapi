@@ -1,13 +1,20 @@
-<%= link_to "All Stores", "/stores" %>
+<%= link_to "See Stores", "/stores" %>
 
 <h1>LCBO Products</h1>
 
 
+<ol>
 <% @products['result'].each do |p| %>
   <p>
-    <%= link_to p['name'], product_path(p['id']) %>
-    <%= format_price p['price_in_cents'] %>
+   <li> Name : <%= link_to p['name'], product_path(p['id']) %> Price $ :
+    <%= format_price p['price_in_cents'] %> Category :
     <%= p['primary_category'] %>
-  </p>
+  </li>
+</p>
 <% end %>
-<%= link_to "All Stores", "/stores" %>
+
+</ol>
+<%= link_to "See Stores", stores_path %>
+<%= link_to "See Products", products_path %>
+<%= link_to "Previous Page", products_path(page: @products['pager']['previous_page']) %>
+<%= link_to "Next Page", products_path(page: @products['pager']['next_page']) %>

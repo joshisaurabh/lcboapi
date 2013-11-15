@@ -1,17 +1,21 @@
 
-<%= link_to "See All Products", "/products" %>
-
+<%= link_to "See Products", "/products" %>
+<ol>
 <h1>LCBO Stores</h1>
 
 <% @stores['result'].each do |s| %>
   <p>
-    <%= link_to s['name'], store_path(s['id']) %>
+    <li><%= link_to s['name'], store_path(s['id']) %>
     <%= s['address_line_1'] %>
    <%= s['address_line_2'] %>
     <%=  s['city'] %>
     <%= s['postal_code'] %>
+</li>
   </p>
 <% end %>
+</ol>
 
 
-<%= link_to "See All Products", "/products" %>
+
+<%= link_to "Previous Page", stores_path(page: @stores['pager']['previous_page']) %>
+<%= link_to "Next Page", stores_path(page: @stores['pager']['next_page']) %>
